@@ -1,0 +1,14 @@
+{% load static %}
+<div>
+	<h3>NEW BLOG</h3>
+</div>
+
+{% for post in posts %}
+<div>
+	<h2>{{ post.title }}</h2>
+	<img src="{% static post.cover %}"/>
+	<p>{{ post.text|linebreaksbr }}</p>
+	<p>published: {{ post.published_date }}</p>
+</div>
+<hr>
+{% endfor %}
