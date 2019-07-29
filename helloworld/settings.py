@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import yaml
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +20,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'k*5-%ds801qrcgz3dazyi+k_%x+lmpl78v%@276*6#_s(g29&d'
+credentials = yaml.load(open('credentials.yaml'), Loader=yaml.FullLoader)
+SECRET_KEY = credentials['app_secret']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

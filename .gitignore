@@ -119,7 +119,7 @@ venv/
 credentials.yaml
 credentials.yml
 .vscode
-migrations
+*/migrations
 !**/migrations/__init__.py
 daemon-services/
 Portfolio/static/Portfolio/site-data
