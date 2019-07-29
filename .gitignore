@@ -115,6 +115,7 @@ local_settings.py
 db.sqlite3
 venv/
 .idea
+
 *.swp
 credentials.yaml
 credentials.yml
