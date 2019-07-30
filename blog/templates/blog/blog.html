@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block body %}
+	<h2 class='blue-grey-text darken-1'>{{post.title}}</h2>
+	<p>{{post.published_date}}</p>
+
+	<hr>
+	<p>
+		{{post.text}}
+	</p>
+{% endblock %}
