@@ -8,7 +8,9 @@ def BlogList(request):
 
 
 def blog(request, post_id):
-    context = {"post": blog_model.Post.objects.get(pk=post_id)}
+    post_data = blog_model.Post.objects.get(pk=post_id)
+    print(post_data.cover.url)
+    context = {"post": post_data}
 
     return render(request, "blog/blog.html", context)
 
