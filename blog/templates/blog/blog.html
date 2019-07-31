@@ -1,14 +1,18 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-{% block title %} {{ post.title }} {% endblock %}
+{% block title %} {{ title }} {% endblock %}
 
 {% block body %}
-	<h2 class='blue-grey-text darken-1'>{{post.title}}</h2>
-	<p>{{post.published_date}}</p>
+	<h2 class='blue-grey-text darken-1'>{{title}}</h2>
+	<p>{{published_date}}</p>
+	<p><strong>Category:</strong> {{category}}</p>
 
+	<div>
+		<img src="{% static image %}" style='width: 900px'/>
+	</div>
 	<hr>
 	<p>
-		{{post.text}}
+		{{text}}
 	</p>
 {% endblock %}

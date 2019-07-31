@@ -6,6 +6,9 @@ from django.utils import timezone
 class Category(models.Model):
 	category_name = models.CharField(max_length=64)
 
+	class Meta:
+		verbose_name_plural = 'Catagories'
+
 	def __str__(self):
 		return self.category_name
 
@@ -16,7 +19,7 @@ class Post(models.Model):
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 	cover = models.ImageField(upload_to="blog/static/images/", null=False)
-	category = models.ManyToManyField(Category, blank = False)
+	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
 	def publish(self):
 		self.published_date = timezone.now()
