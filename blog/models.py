@@ -15,7 +15,7 @@ class Post(models.Model):
 	text = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	cover = models.ImageField(upload_to="blog/static/images/", null=False)
+	cover = models.ImageField(upload_to="blog/static/blog/images/", null=False)
 	category = models.ManyToManyField(Category, blank = False)
 
 	def publish(self):

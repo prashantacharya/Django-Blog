@@ -5,10 +5,11 @@
 
 {% block body %}
 	<h2 class='blue-grey-text darken-1'>{{post.title}}</h2>
-	<p>{{post.published_date}}</p>
+	{% comment %} <p>{{post.published_date}}</p> {% endcomment %}
 
 	<hr>
 	<p>
-		{{post.text}}
+	<img src="{% static post.image %}"/>
+		{% comment %} {{post.text}} {% endcomment %}
 	</p>
 {% endblock %}
