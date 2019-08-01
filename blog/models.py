@@ -19,7 +19,7 @@ class Post(models.Model):
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 	cover = models.ImageField(upload_to="blog/static/images/", null=False)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
+	category = models.ManyToManyField(Category, blank = True, related_name = 'Category')
 
 	def publish(self):
 		self.published_date = timezone.now()

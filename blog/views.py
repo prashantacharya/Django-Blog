@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from . import models as blog_model
 
-
 def BlogList(request):
-	context = {"posts": blog_model.Post.objects.all()}
-	return render(request, "blog/all-posts.html", context)
+	posts = blog_model.Post.objects.all()
+	context = {'posts': ''}
+	print(type(blog_model.Post.objects.all()))
+	for post in posts:
+		print(post.id)
+
+	return render(request, "blog/all-posts.html", {'posts': blog_model.Post.objects.all()})
 
 
 def blog(request, post_id):
@@ -23,7 +27,7 @@ def blog(request, post_id):
 		'image': image,
 		'text': post_data.text,
 		'author': post_data.author,
-		'category': post_data.category,
+		'categories': post_data.category.all(),
 		'published_date': post_data.published_date
 	})
 

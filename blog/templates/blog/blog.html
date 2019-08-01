@@ -6,7 +6,11 @@
 {% block body %}
 	<h2 class='blue-grey-text darken-1'>{{title}}</h2>
 	<p>{{published_date}}</p>
-	<p><strong>Category:</strong> {{category}}</p>
+	<p><strong>Category:</strong> 
+		{% for category in categories %}
+			{{ category }},
+		{% endfor %}
+	</p>
 
 	<div>
 		<img src="{% static image %}" style='width: 900px'/>
