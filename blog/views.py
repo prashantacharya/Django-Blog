@@ -43,5 +43,14 @@ def blog(request, post_id):
 
 def categories(request):
 	categories = blog_model.Category.objects.all()
-	return render(request, "blog/categories.html", {"categories": categories})
+	post_by_category = []
+	for category in categories:
+		temp = {
+			'category': category,
+			'posts': blog_model.Post.objects.filter(category = category)
+		}
+
+		post_by_category.append(temp)
+
+	return render(request, "blog/categories.html", {"posts": post_by_category})
 
