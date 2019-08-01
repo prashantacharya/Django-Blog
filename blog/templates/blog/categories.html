@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %}
+
+{% block title %}
+	Categories
+{% endblock %}
+
+{% block body %}
+	{% for category in categories %}
+		<h3>{{category}}</h3>
+	{% endfor %}
+{% endblock %}
