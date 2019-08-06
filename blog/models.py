@@ -20,6 +20,7 @@ class Post(models.Model):
 	published_date = models.DateTimeField(blank=True, null=True)
 	cover = models.ImageField(upload_to="blog/static/images/", null=False)
 	category = models.ManyToManyField(Category, blank = True, related_name = 'Category')
+	related_blogs = models.ManyToManyField('self', blank = True, null = True)
 
 	def publish(self):
 		self.published_date = timezone.now()
@@ -27,3 +28,4 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
